@@ -19,5 +19,19 @@
     "date": "2026-03-14",
     "title": "dsc09856",
     "filename": "dsc09856.webp"
+  },
+  {
+    "src": "images/2026-03-14/image-2.webp",
+    "thumb": "thumbs/2026-03-14/image-2.webp",
+    "date": "2026-03-14",
+    "title": "image 2",
+    "filename": "image-2.webp"
+  },
+  {
+    "src": "images/2026-03-14/image-3.webp",
+    "thumb": "thumbs/2026-03-14/image-3.webp",
+    "date": "2026-03-14",
+    "title": "image 3",
+    "filename": "image-3.webp"
   }
 ]
