@@ -12,5 +12,12 @@
     "date": "2026-03-18",
     "title": "filter worker test",
     "filename": "filter-worker-test.webp"
+  },
+  {
+    "src": "images/2026-03-14/dsc09856.webp",
+    "thumb": "thumbs/2026-03-14/dsc09856.webp",
+    "date": "2026-03-14",
+    "title": "dsc09856",
+    "filename": "dsc09856.webp"
   }
 ]
