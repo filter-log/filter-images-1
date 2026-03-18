@@ -254,7 +254,7 @@ function inferGalleryBaseUrl() {
 
 function inferRepoName() {
   const pathParts = window.location.pathname.split("/").filter(Boolean);
-  return pathParts[0] || "filter-images-template";
+  return pathParts[0] || "filter-images-1";
 }
 
 async function copyText(value, button) {

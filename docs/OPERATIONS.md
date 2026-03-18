@@ -1,27 +1,21 @@
 # Operations Guide
 
-## 새 이미지 레포를 템플릿에서 만드는 방법
+## 이 레포에서 확인할 설정
 
-1. `filter-images-template` 저장소의 `Settings -> General`로 이동한다.
-2. `Template repository`를 체크한다.
-3. `Use this template`를 눌러 `filter-images-2` 같은 새 저장소를 만든다.
-4. 새 저장소의 `Settings -> Pages`에서 `main` branch root를 배포 대상으로 설정한다.
-5. 새 저장소의 [assets/js/config.js](/Users/seobeen/workspace/filter-images-template/assets/js/config.js#L1)를 자기 레포 기준으로 수정한다.
+운영 중 가장 먼저 볼 파일은 [../assets/js/config.js](../assets/js/config.js)다.
 
-## 새 레포에서 수정해야 하는 값
-
-예를 들어 `filter-images-2`를 만들었다면:
+현재 값은 다음과 같다.
 
 ```js
 window.UPLOAD_CONFIG = {
-  repoName: "filter-images-2",
-  galleryBaseUrl: "https://filter-log.github.io/filter-images-2",
-  workerApiUrl: "",
+  repoName: "filter-images-1",
+  galleryBaseUrl: "https://filter-log.github.io/filter-images-1",
+  workerApiUrl: "https://filter-image-upload-worker.filter-log.workers.dev",
   maxFiles: 100,
 };
 ```
 
-지금 단계에서는 `workerApiUrl`을 비워 둔다. 다음 단계에서 Worker를 배포한 뒤 그 URL만 넣으면 된다.
+`workerApiUrl`에는 Worker base URL만 넣는다. `/auth`나 `/upload`를 직접 붙이지 않는다.
 
 ## 비전공자 업로드 흐름
 
@@ -31,8 +25,9 @@ window.UPLOAD_CONFIG = {
 4. 암호를 입력한다.
 5. `incoming/YYYY-MM-DD/...` 경로 미리보기를 확인한다.
 6. 업로드 버튼을 누른다.
-
-현재는 Worker가 없으므로 실제 업로드 대신 payload 준비 상태가 표시된다. Worker 연결 후에는 같은 화면에서 바로 실제 전송이 된다.
+7. 업로드 페이지가 `/auth`로 암호를 검증한다.
+8. 발급된 Bearer 토큰으로 `/upload`를 호출한다.
+9. 결과 화면에서 성공/실패 파일별 응답을 확인한다.
 
 ## 날짜 운영 규칙
 
@@ -61,7 +56,8 @@ window.UPLOAD_CONFIG = {
 1. GitHub Pages 활성화
 2. GitHub Actions 허용 상태 확인
 3. `assets/js/config.js` 수정
-4. 나중에 Worker를 붙일 때 `workerApiUrl` 입력
+4. `workerApiUrl`이 배포된 Worker base URL인지 확인
+5. Worker의 `ALLOWED_REPOS`에 `filter-images-1`이 포함돼 있는지 확인
 
 ## 블로그 연동
 
