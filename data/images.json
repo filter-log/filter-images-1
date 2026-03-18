@@ -14,6 +14,20 @@
     "filename": "filter-worker-test.webp"
   },
   {
+    "src": "images/2026-03-18/image-2.webp",
+    "thumb": "thumbs/2026-03-18/image-2.webp",
+    "date": "2026-03-18",
+    "title": "image 2",
+    "filename": "image-2.webp"
+  },
+  {
+    "src": "images/2026-03-18/image.webp",
+    "thumb": "thumbs/2026-03-18/image.webp",
+    "date": "2026-03-18",
+    "title": "image",
+    "filename": "image.webp"
+  },
+  {
     "src": "images/2026-03-14/dsc09856.webp",
     "thumb": "thumbs/2026-03-14/dsc09856.webp",
     "date": "2026-03-14",
