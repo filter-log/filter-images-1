@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Filter Images Template</title>
+    <meta
+      name="description"
+      content="GitHub Pages로 배포하는 미니멀 사진 아카이브 템플릿. 날짜별 탐색과 업로드 도구 페이지를 함께 제공합니다."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">GitHub Pages Image Archive</p>
+          <h1 id="gallery-title">filter-images-template</h1>
+          <p class="hero-description">
+            YYYY-MM-DD 단일 날짜 폴더를 기준으로 이미지를 정리하는 사진 아카이브 템플릿이다.
+            GitHub Pages는 공개 갤러리를, GitHub Actions는 이미지 후처리를 담당한다.
+          </p>
+          <div class="hero-actions">
+            <a class="hero-link secondary" href="upload/">업로드 도구</a>
+            <a class="hero-link" id="gallery-base-link" href="#" target="_blank" rel="noreferrer">
+              갤러리 기본 URL
+            </a>
+          </div>
+        </div>
+        <div class="hero-note">
+          <span>Template Repository</span>
+          <strong id="repo-badge">filter-images-template</strong>
+          <p class="hero-note-copy">새 레포를 만들면 이 구조가 그대로 복제된다.</p>
+        </div>
+      </header>
+
+      <section class="toolbar" aria-label="Date filters">
+        <div class="toolbar-heading">
+          <p class="toolbar-label">Browse by date</p>
+          <h2>업로드 날짜 탐색</h2>
+        </div>
+        <div id="date-filters" class="filter-chips" role="tablist" aria-label="Dates"></div>
+      </section>
+
+      <section class="summary-strip" aria-live="polite">
+        <div>
+          <span class="summary-label">Visible Images</span>
+          <strong id="visible-count">0</strong>
+        </div>
+        <div>
+          <span class="summary-label">Active Date</span>
+          <strong id="active-date-label">전체</strong>
+        </div>
+      </section>
+
+      <main>
+        <div id="gallery-status" class="gallery-status">이미지 목록을 불러오는 중입니다.</div>
+        <div id="gallery-sections" class="gallery-sections"></div>
+      </main>
+    </div>
+
+    <template id="gallery-card-template">
+      <article class="gallery-card">
+        <button class="card-image-button" type="button">
+          <img class="gallery-thumb" alt="" loading="lazy" />
+        </button>
+        <div class="card-body">
+          <div class="card-meta">
+            <p class="card-date"></p>
+          </div>
+          <h3 class="card-title"></h3>
+          <p class="card-filename"></p>
+          <div class="card-actions">
+            <a class="card-link" target="_blank" rel="noreferrer">원본 보기</a>
+            <button class="quiet-button action-copy-url" type="button">URL 복사</button>
+            <button class="quiet-button action-copy-markdown" type="button">Markdown 복사</button>
+          </div>
+        </div>
+      </article>
+    </template>
+
+    <dialog id="image-dialog" class="image-dialog">
+      <form method="dialog" class="dialog-panel">
+        <button class="dialog-close" type="submit" aria-label="닫기">닫기</button>
+        <img id="dialog-image" alt="" />
+        <div class="dialog-caption">
+          <strong id="dialog-title"></strong>
+          <a id="dialog-link" target="_blank" rel="noreferrer">새 탭에서 원본 보기</a>
+        </div>
+      </form>
+    </dialog>
+
+    <script src="assets/js/config.js"></script>
+    <script src="assets/js/gallery.js" type="module"></script>
+  </body>
+</html>
